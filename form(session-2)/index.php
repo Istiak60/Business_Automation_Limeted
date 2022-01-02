@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>jQuery Steps Form</title>
+    <title>Registration Form</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/jquery.steps.css">
 </head>
@@ -27,10 +27,37 @@
                 <input id="name" name="name" type="text" class="required">
                 <label for="surname">Last name *</label>
                 <input id="surname" name="surname" type="text" class="required">
+                <label for="dob">Date of Birth *</label>
+                <input id="dob" name="dob" type="date" class="required">
                 <label for="email">Email *</label>
                 <input id="email" name="email" type="text" class="required email">
                 <label for="address">Address</label>
                 <input id="address" name="address" type="text">
+
+                <p>(*) Mandatory</p>
+            </section>
+            <h3>Work and Education</h3>
+            <section>
+            <label for="School">School  (If applicable)</label>
+                <input id="school" name="school" type="text" >
+                <label for="college">College    (If applicable)</label>
+                <input id="college" name="college" type="text" >
+                <label for="university">University  (If applicable)</label>
+                <input id="university" name="university" type="text" >
+                
+                
+            </section>
+            <h3>Social Accounts</h3>
+            <section>
+                <label for="Facebook">Facebook *</label>
+                <input id="fbName" name="fbName" type="text" class="required">
+                <label for="Github">Github *</label>
+                <input id="github" name="github" type="text" class="required">
+                <label for="linkedIn">Linked In *</label>
+                <input id="linkedIn" name="linkedIn" type="text" class="required">
+                <label for="Whatsapp">Whatsapp</label>
+                <input id="whatsapp" name="whatsapp" type="text" >
+               
                 <p>(*) Mandatory</p>
             </section>
             <h3>Finish</h3>
