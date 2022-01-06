@@ -30,10 +30,10 @@ form.children("div").steps({
 			console.log('test');
 			$('#my-form').find('a[href="#finish"]').remove();
 			$('#my-form .actions li:last-child')
-				.append('<button type="submit" id="submit" class="btn btn-primary">Done</button>');
+				.append('<button onclick="window.location.href="list.php"" type="submit" id="submit" class="btn btn-primary">Submit</button>');
+
 
 		}
 	}
 });
 
-console.log('loaded');
