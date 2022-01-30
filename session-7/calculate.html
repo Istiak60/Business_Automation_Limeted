@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<title>Calculator</title>
+</head>
+
+<body>
+	<!-- <h1>Hello, world!</h1> -->
+	<div class="card" style="margin: 50px 100px 0px 100px;padding: 50px 100px 50px 100px;background-color: azure;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<table style="margin: 10px 10px 10px 200px;">
+						<thead>
+							<th>Local </th>
+							<th>Foreign</th>
+							<th>Vat</th>
+							<th>Operations</th>
+
+						</thead>
+						<tbody>
+							<tr>
+								<td> <input onkeyup="calculatePrice('plus')" type="text" class="plus" />
+								</td>
+								<td> <input onkeyup="calculatePrice('plus')" type="text" class="plus" />
+								</td>
+								<td> <input onkeyup="calculatePrice('plus')" type="text" class="plus" />
+								</td>
+
+								<td style="text-align: center;">ADDITION</td>
+
+
+
+							</tr>
+							<tr>
+								<td> <input onkeyup="calculatePrice('multiply')" type="text" class="multiply" />
+								</td>
+								<td> <input onkeyup="calculatePrice('multiply')" type="text" class="multiply" />
+								</td>
+								<td> <input onkeyup="calculatePrice('multiply')" type="text" class="multiply" />
+								</td>
+								<td style="text-align: center;">MULTIPLY</td>
+
+
+							</tr>
+							<tr>
+								<td> <input onkeyup="calculatePrice('minus')" type="text" class="minus" />
+								</td>
+								<td> <input onkeyup="calculatePrice('minus')" type="text" class="minus" />
+								</td>
+								<td> <input onkeyup="calculatePrice('minus')" type="text" class="minus" />
+								</td>
+								<td style="text-align: center;">SUBTRACTION</td>
+
+
+							</tr>
+							<tr>
+								<td> <input onkeyup="calculatePrice('division')" type="text" class="division" />
+								</td>
+								<td> <input onkeyup="calculatePrice('division')" type="text" class="division" />
+								</td>
+								<td> <input onkeyup="calculatePrice('division')" type="text" class="division" />
+								</td>
+								<td style="text-align: center;">DIVISION</td>
+
+
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2"> Total</td>
+								<td><input id="total" type="text"></td>
+							</tr>
+						</tfoot>
+					</table>
+
+
+
+
+
+
+
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<script src="condition.js"></script>
+	<script>
+		function calculatePrice(className) {
+			let total_price = 0;
+			let target_id = document.getElementById('total');
+
+			if (className == "plus") {
+
+				$("." + className).each(function () {
+					total_price += parseFloat(Number($(this).val()));
+					console.log(total_price);
+				});
+
+				target_id.value = total_price;
+			}
+			if (className == "multiply") {
+				let total_price = 1;
+				$("." + className).each(function () {
+					total_price *= parseFloat(Number($(this).val()));
+					console.log(total_price);
+				});
+
+				target_id.value = total_price;
+			}
+			if (className == "minus") {
+				let total_price = 0;
+				let i = 0;
+				$("." + className).each(function () {
+					i++;
+					if (i == 1) {
+						total_price = parseFloat(Number($(this).val())) - total_price;
+						console.log(total_price);
+					}
+					else {
+						total_price -= parseFloat(Number($(this).val()));
+						console.log(total_price);
+					}
+				});
+
+
+
+
+				target_id.value = total_price;
+			}
+			if (className == "division") {
+				let total_price = 1;
+				let i = 0;
+				$("." + className).each(function () {
+					i++;
+					if (i == 1) {
+						total_price = parseFloat(Number($(this).val())) / total_price;
+						console.log(total_price);
+					}
+					else {
+						total_price /= parseFloat(Number($(this).val()));
+						console.log(total_price);
+					}
+				});
+
+
+
+
+				target_id.value = total_price;
+			}
+
+
+		}
+
+
+
+		$(function ($) {
+
+
+
+		});
+
+
+
+	</script>
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
